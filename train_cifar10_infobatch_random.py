@@ -300,7 +300,7 @@ def test(epoch):
             inputs, targets = inputs.to(device), targets.to(device)
             outputs = net(inputs)
             loss = criterion(outputs, targets)
-
+            loss = torch.mean(loss)
             test_loss += loss.item()
             _, predicted = outputs.max(1)
             total += targets.size(0)
